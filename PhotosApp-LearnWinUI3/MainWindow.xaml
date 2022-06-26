@@ -33,9 +33,15 @@
                     </StackPanel>
                 </Grid>
             </DataTemplate>
+            <Style x:Key="ImageGridView_ItemContainerStyle"
+                   TargetType="GridViewItem">
+                <Setter Property="Background" Value="Gray"/>
+                <Setter Property="Margin" Value="8" />
+            </Style>
         </Grid.Resources>
         <GridView x:Name="ImageGridView" 
-                  ItemTemplate="{StaticResource ImageGridView_ItemTemplate}">
+                  ItemTemplate="{StaticResource ImageGridView_ItemTemplate}"
+                  ItemContainerStyle="{StaticResource ImageGridView_ItemContainerStyle}">
             
         </GridView>
     </Grid>
