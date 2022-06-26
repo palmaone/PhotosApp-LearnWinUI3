@@ -8,6 +8,35 @@
     mc:Ignorable="d">
 
     <Grid>
-        <GridView x:Name="ImageGridView"/>
+        <Grid.Resources>
+            <DataTemplate x:Key="ImageGridView_ItemTemplate">
+                <Grid Height="300" Width="300" Margin="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Image x:Name="ItemImage"
+                           Source="Assets/StoreLogo.png"
+                           Stretch="Uniform"/>
+                    <StackPanel Orientation="Vertical"
+                                Grid.Row="1">
+                        <TextBlock Text="ImageFileType"
+                                   HorizontalAlignment="Center"
+                                   Style="{StaticResource CaptionTextBlockStyle}"/>
+                        <TextBlock Text="ImageDimensions"
+                                   HorizontalAlignment="Center"
+                                   Style="{StaticResource CaptionTextBlockStyle}"
+                                   Margin="8,0,0,0"/>
+                        
+                        <RatingControl Value="3" IsReadOnly="True"/>
+
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </Grid.Resources>
+        <GridView x:Name="ImageGridView" 
+                  ItemTemplate="{StaticResource ImageGridView_ItemTemplate}">
+            
+        </GridView>
     </Grid>
 </Window>
