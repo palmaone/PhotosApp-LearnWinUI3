@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PhotosApp-LearnWinUI3 (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PhotosApp-LearnWinUI3 (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
