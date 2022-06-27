@@ -38,10 +38,15 @@
                 <Setter Property="Background" Value="Gray"/>
                 <Setter Property="Margin" Value="8" />
             </Style>
+            <ItemsPanelTemplate x:Key="ImageGridView_ItemsPanelTemplate">
+                <ItemsWrapGrid Orientation="Horizontal"
+                               HorizontalAlignment="Center" />
+            </ItemsPanelTemplate>
         </Grid.Resources>
         <GridView x:Name="ImageGridView" 
                   ItemTemplate="{StaticResource ImageGridView_ItemTemplate}"
-                  ItemContainerStyle="{StaticResource ImageGridView_ItemContainerStyle}">
+                  ItemContainerStyle="{StaticResource ImageGridView_ItemContainerStyle}"
+                  ItemsPanel="{StaticResource ImageGridView_ItemsPanelTemplate}">
             
         </GridView>
     </Grid>
