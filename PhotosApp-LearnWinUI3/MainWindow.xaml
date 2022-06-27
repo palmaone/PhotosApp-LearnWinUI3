@@ -46,7 +46,8 @@
         <GridView x:Name="ImageGridView" 
                   ItemTemplate="{StaticResource ImageGridView_ItemTemplate}"
                   ItemContainerStyle="{StaticResource ImageGridView_ItemContainerStyle}"
-                  ItemsPanel="{StaticResource ImageGridView_ItemsPanelTemplate}">
+                  ItemsPanel="{StaticResource ImageGridView_ItemsPanelTemplate}"
+                  ContainerContentChanging="ImageGridView_ContainerContentChanging">
             
         </GridView>
     </Grid>

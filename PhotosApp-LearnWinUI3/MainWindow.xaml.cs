@@ -35,6 +35,34 @@ namespace PhotosApp_LearnWinUI3
             _ = GetItemsAsync();
         }
 
+        public void ImageGridView_ContainerContentChanging(ListViewBase sender, ContainerContentChangingEventArgs args)
+        {
+            if(args.InRecycleQueue)
+            {
+                var templeteRoot = args.ItemContainer.ContentTemplateRoot as Grid;
+                var image = templeteRoot.FindName("ItemImage") as Image;
+                image.Source = null;
+            }
+
+            if(args.Phase == 0 )
+            {
+                args.RegisterUpdateCallback(ShowImage);
+                args.Handled = true;
+            }
+        }
+
+        private async void ShowImage(ListViewBase sender, ContainerContentChangingEventArgs args)
+        {
+            if(args.Phase == 1)
+            {
+                //It's phase 1, so show this item's image
+                var templateRoot = args.ItemContainer.ContentTemplateRoot as Grid;
+                var image = templateRoot.FindName("ItemImage") as Image;
+                var item = args.Item as ImageFileInfo;
+                image.Source = await item.GetImageThumbnailAsync();
+            }
+        }
+
         private async Task GetItemsAsync()
         {
             StorageFolder appInstalledFolder = Package.Current.InstalledLocation;
