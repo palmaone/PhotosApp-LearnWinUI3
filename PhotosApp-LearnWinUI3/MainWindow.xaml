@@ -9,7 +9,8 @@
 
     <Grid>
         <Grid.Resources>
-            <DataTemplate x:Key="ImageGridView_ItemTemplate">
+            <DataTemplate x:Key="ImageGridView_ItemTemplate"
+                          x:DataType="local:ImageFileInfo">
                 <Grid Height="300" Width="300" Margin="8">
                     <Grid.RowDefinitions>
                         <RowDefinition />
@@ -20,15 +21,20 @@
                            Stretch="Uniform"/>
                     <StackPanel Orientation="Vertical"
                                 Grid.Row="1">
-                        <TextBlock Text="ImageFileType"
+                        <TextBlock Text="{x:Bind ImageTitle}"
                                    HorizontalAlignment="Center"
                                    Style="{StaticResource CaptionTextBlockStyle}"/>
-                        <TextBlock Text="ImageDimensions"
-                                   HorizontalAlignment="Center"
-                                   Style="{StaticResource CaptionTextBlockStyle}"
-                                   Margin="8,0,0,0"/>
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind ImageFileType}"
+                                       HorizontalAlignment="Center"
+                                       Style="{StaticResource CaptionTextBlockStyle}"/>
+                            <TextBlock Text="{x:Bind ImageDimensions}"
+                                       HorizontalAlignment="Center"
+                                       Style="{StaticResource CaptionTextBlockStyle}"
+                                       Margin="8,0,0,0"/>
+                        </StackPanel>
                         
-                        <RatingControl Value="3" IsReadOnly="True"/>
+                        <RatingControl Value="{x:Bind ImageRating}" IsReadOnly="True"/>
 
                     </StackPanel>
                 </Grid>
