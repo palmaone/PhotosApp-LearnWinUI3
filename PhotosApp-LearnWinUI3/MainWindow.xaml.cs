@@ -77,7 +77,7 @@ namespace PhotosApp_LearnWinUI3
                 Images.Add(await LoadImageInfo(file));
             }
 
-            ImageGridView.ItemsSource = Images;
+            //ImageGridView.ItemsSource = Images;
         }
 
         public async static Task<ImageFileInfo> LoadImageInfo(StorageFile file)

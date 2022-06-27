@@ -53,7 +53,8 @@
                   ItemTemplate="{StaticResource ImageGridView_ItemTemplate}"
                   ItemContainerStyle="{StaticResource ImageGridView_ItemContainerStyle}"
                   ItemsPanel="{StaticResource ImageGridView_ItemsPanelTemplate}"
-                  ContainerContentChanging="ImageGridView_ContainerContentChanging">
+                  ContainerContentChanging="ImageGridView_ContainerContentChanging"
+                  ItemsSource="{x:Bind Images}">
             
         </GridView>
     </Grid>
